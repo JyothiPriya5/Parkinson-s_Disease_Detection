@@ -1,4 +1,4 @@
-# 🧠 Parkinson's Disease 
+# 🧠 Parkinson's Disease Detection
 ## Introduction
 **Parkinson’s Disease** is a progressive neurological disorder that primarily affects movement. It occurs due to the gradual loss of **dopamine-producing neurons** in the brain, leading to symptoms like tremors, stiffness, slow movement (bradykinesia), and balance issues. Though the exact cause is unknown, genetics and environmental factors may play a role. While there is no cure, treatments like medications, therapy, and deep brain stimulation help manage symptoms.
 
