@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parkinson's Disease Prediction System</title>
+    <style>
+        /* Your CSS styling */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        .navbar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #2c3e50;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        .navbar a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+            font-size: 18px;
+            transition: background-color 0.3s;
+        }
+        .navbar a:hover {
+            background-color: #34495e;
+        }
+        .section {
+            padding: 20px;
+            box-sizing: border-box;
+            margin-top: 60px;
+        }
+        .hero {
+            background-color: black;
+            color: white;
+            text-align: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .hero h1 {
+            font-size: 3em;
+            margin: 0;
+        }
+        .hero p {
+            font-size: 1.5em;
+            margin: 20px 0;
+        }
+        .btn {
+            display: inline-block;
+            font-size: 18px;
+            color: white;
+            background-color: #3498db;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #2980b9;
+        }
+        .demo {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(to right, #f39c12, #f1c40f);
+            color: #333;
+            text-align: center;
+        }
+        .demo-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            max-width: 1200px;
+            width: 100%;
+        }
+        .demo-content img {
+            width: 25%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin-right: 75px;
+        }
+        .demo-text {
+            flex: 1;
+        }
+        .demo-text h2 {
+            font-size: 2em;
+            margin: 0 0 20px;
+        }
+        .demo-text p {
+            text-align: justify;
+            font-size: 1.2em;
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+        .demo-text .btn {
+            margin-top: 20px;
+        }
+        .form-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-bottom: 8px;
+            color: #34495e;
+            font-weight: 500;
+        }
+        select, input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #bdc3c7;
+            border-radius: 5px;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease;
+        }
+        select:focus, input[type="text"]:focus {
+            outline: none;
+            border-color: #3498db;
+        }
+        input[type="submit"] {
+            grid-column: 1 / -1;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            background-color: #2ecc71;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        input[type="submit"]:hover {
+            background-color: #27ae60;
+        }
+    </style>
+    <script>
+        // JavaScript validation for form submission
+        function validateForm() {
+            const inputs = document.querySelectorAll('input[type="text"]');
+            for (let input of inputs) {
+                if (input.value.trim() === "") {
+                    alert("Please fill out all fields.");
+                    return false;
+                }
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <div class="navbar">
+        <a href="#home">Home</a>
+        <a href="#demo">Demo</a>
+        <a href="#take-test">Take a Test</a>
+        <a href="/admin">Access Data</a>
+    </div>
+
+    <div id="home" class="section hero">
+        <h1>Welcome To Parkinson's Disease Detection System</h1>
+        <p>It's possible not just to survive, but to thrive and live a healthy, wonderful life again.</p>
+        <a href="#take-test" class="btn">Get Started</a>
+    </div>
+
+    <div id="demo" class="section demo">
+        <div class="demo-content">
+            <img src="https://media.istockphoto.com/id/1056400820/vector/concept-people-fill-out-a-form-application-form-for-employment-people-select-a-resume-for-a.jpg?s=612x612&w=0&k=20&c=DuzHzU_GTzNfPB6Wco_U6KrTCjhrhsz3VVE4NDkQGI8=" alt="Demo Image">
+            
+            <div class="demo-text">
+                <h2>How to Respond to the Test</h2>
+                <p>Fill out all required fields.</p>
+                <p>Fill the fields as per the measurement standards mentioned.</p>
+                <p>As good and effective educators, we always want to improve. Improvement is something we instill in our patients and it would be hypocritical to not expect the same from ourselves. Patients are the center of our Hospital and they are where we can find the most relevant information about how to be better at our jobs. If we are not delivering effectively to the patients how can we ever expect better satisfaction hopefully.</p>
+                <a href="#take-test" class="btn">Take Test</a>
+            </div>
+        </div>
+    </div>
+
+    <h1>Take the Test</h1>
+    <div id="take-test" class="section form-container">
+        <h1>Parkinson's Disease Prediction</h1>
+        <form action="/predict" method="POST">
+            <div class="form-grid">
+                <!-- Replace kidney disease fields with Parkinson's specific fields -->
+                <div class="form-group">
+                    <label for="MDVP_Fo">MDVP:Fo(Hz):</label>
+                    <input type="text" id="MDVP_Fo" name="MDVP:Fo(Hz)" required>
+                </div>
+                <div class="form-group">
+                    <label for="MDVP_Fhi">MDVP:Fhi(Hz):</label>
+                    <input type="text" id="MDVP_Fhi" name="MDVP:Fhi(Hz)" required>
+                </div>
+                <div class="form-group">
+                    <label for="MDVP_Flo">MDVP:Flo(Hz):</label>
+                    <input type="text" id="MDVP_Flo" name="MDVP:Flo(Hz)" required>
+                </div>
+                <div class="form-group">
+                    <label for="MDVP_Jitter">MDVP:Jitter(%):</label>
+                    <input type="text" id="MDVP_Jitter" name="MDVP:Jitter(%)" required>
+                </div>
+                <div class="form-group">
+                    <label for="MDVP_Jitter_Abs">MDVP:Jitter(Abs):</label>
+                    <input type="text" id="MDVP_Jitter_Abs" name="MDVP:Jitter(Abs)" required>
+                </div>
+                <div class="form-group">
+                    <label for="MDVP_RAP">MDVP:RAP:</label>
+                    <input type="text" id="MDVP_RAP" name="MDVP:RAP" required>
+                </div>
+                <div class="form-group">
+                    <label for="MDVP_PPQ">MDVP:PPQ:</label>
+                    <input type="text" id="MDVP_PPQ" name="MDVP:PPQ" required>
+                </div>
+                <div class="form-group">
+                    <label for="Jitter_DDP">Jitter:DDP:</label>
+                    <input type="text" id="Jitter_DDP" name="Jitter:DDP" required>
+                </div>
+                <div class="form-group">
+                    <label for="MDVP_Shimmer">MDVP:Shimmer:</label>
+                    <input type="text" id="MDVP_Shimmer" name="MDVP:Shimmer" required>
+                </div>
+                <div class="form-group">
+                    <label for="MDVP_Shimmer_dB">MDVP:Shimmer(dB):</label>
+                    <input type="text" id="MDVP_Shimmer_dB" name="MDVP:Shimmer(dB)" required>
+                </div>
+                <div class="form-group">
+                    <label for="Shimmer_APQ3">Shimmer:APQ3:</label>
+                    <input type="text" id="Shimmer_APQ3" name="Shimmer:APQ3" required>
+                </div>
+                <div class="form-group">
+                    <label for="Shimmer_APQ5">Shimmer:APQ5:</label>
+                    <input type="text" id="Shimmer_APQ5" name="Shimmer:APQ5" required>
+                </div>
+                <div class="form-group">
+                    <label for="MDVP_APQ">MDVP:APQ:</label>
+                    <input type="text" id="MDVP_APQ" name="MDVP:APQ" required>
+                </div>
+                <div class="form-group">
+                    <label for="Shimmer_DDA">Shimmer:DDA:</label>
+                    <input type="text" id="Shimmer_DDA" name="Shimmer:DDA" required>
+                </div>
+                <div class="form-group">
+                    <label for="NHR">NHR:</label>
+                    <input type="text" id="NHR" name="NHR" required>
+                </div>
+                <div class="form-group">
+                    <label for="HNR">HNR:</label>
+                    <input type="text" id="HNR" name="HNR" required>
+                </div>
+                <div class="form-group">
+                    <label for="RPDE">RPDE:</label>
+                    <input type="text" id="RPDE" name="RPDE" required>
+                </div>
+                <div class="form-group">
+                    <label for="DFA">DFA:</label>
+                    <input type="text" id="DFA" name="DFA" required>
+                </div>
+                <div class="form-group">
+                    <label for="spread1">Spread1:</label>
+                    <input type="text" id="spread1" name="spread1" required>
+                </div>
+                <div class="form-group">
+                    <label for="spread2">Spread2:</label>
+                    <input type="text" id="spread2" name="spread2" required>
+                </div>
+                <div class="form-group">
+                    <label for="D2">D2:</label>
+                    <input type="text" id="D2" name="D2" required>
+                </div>
+                <div class="form-group">
+                    <label for="PPE">PPE:</label>
+                    <input type="text" id="PPE" name="PPE" required>
+                </div>
+                <input type="submit" value="Predict">
+            </div>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>User Data</title>
+</head>
+<body>
+    <h3>User Data</h3>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>MDVP:Fo(Hz)</th>
+                <th>MDVP:Fhi(Hz)</th>
+                <th>MDVP:Flo(Hz)</th>
+                <th>MDVP:Jitter(%)</th>
+                <th>MDVP:Jitter(Abs)</th>
+                <th>MDVP:RAP</th>
+                <th>MDVP:PPQ</th>
+                <th>Jitter:DDP</th>
+                <th>MDVP:Shimmer</th>
+                <th>MDVP:Shimmer(dB)</th>
+                <th>Shimmer:APQ3</th>
+                <th>Shimmer:APQ5</th>
+                <th>MDVP:APQ</th>
+                <th>Shimmer:DDA</th>
+                <th>NHR</th>
+                <th>HNR</th>
+                <th>RPDE</th>
+                <th>DFA</th>
+                <th>spread1</th>
+                <th>spread2</th>
+                <th>D2</th>
+                <th>PPE</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in data %}
+            <tr>
+                {% for cell in row %}
+                <td>{{ cell }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
